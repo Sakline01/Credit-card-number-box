@@ -41,11 +41,12 @@ function Pin(props) {
       elements.current[i].value = "";
       return "";
     });
-    const val = e.clipboardData
+    let val = e.clipboardData
       .getData("text")
       .match(/.{1,4}/g)
       .filter((a, i) => i < length * perBox);
     console.log(val);
+    val = val.slice(0, 4);
     val.forEach((value, i) => {
       values.current[i] = value;
       elements.current[i].value = value;
